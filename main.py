@@ -47,7 +47,14 @@ def repeatSkill(key, delay=0.5):
     sleep(delay)
     pydirectinput.press(key)
 
+def re_enter_bg():
+    pydirectinput.keyDown('alt')
+    pydirectinput.press('1')
+    sleep(0.3)
+    pydirectinput.keyUp('alt')
+
 while True:
+    re_enter_bg()
     sleep(0.1)
     detect()
     repeatSkill('f2', delay=5)
