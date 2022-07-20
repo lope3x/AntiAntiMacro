@@ -21,7 +21,7 @@ def insert_password(password):
     pydirectinput.press('enter')
 
 def detect():
-    start = pyautogui.locateOnScreen('trava.png', confidence=0.7)
+    start = pyautogui.locateOnScreen('Helper_Images/trava.png', confidence=0.7)
 
     if start is not None:
         print('start')
@@ -48,10 +48,16 @@ def repeatSkill(key, delay=0.5):
     pydirectinput.press(key)
 
 def re_enter_bg():
+    if not check_if_should_enter_bg():
+        return
     pydirectinput.keyDown('alt')
     pydirectinput.press('1')
     sleep(0.3)
     pydirectinput.keyUp('alt')
+
+def check_if_should_enter_bg():
+    eden = pyautogui.locateOnScreen('Helper_Images/eden_chat.png', confidence=0.7)
+    return eden is not None
 
 while True:
     re_enter_bg()
